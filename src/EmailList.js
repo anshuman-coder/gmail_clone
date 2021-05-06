@@ -16,7 +16,7 @@ import Section from './Section';
 import { db } from './firebase';
 
 function EmailList(props) {
-    const [emails, setEmails] = useState({});
+    const [emails, setEmails] = useState([]);
 
     useEffect(() => {
         db.collection('emails').orderBy('timestamp','desc').onSnapshot(snapshot => setEmails(snapshot.docs.map(doc =>({
@@ -78,7 +78,7 @@ function EmailList(props) {
                     />
                 ))} 
 
-                {/* <EmailRow
+                <EmailRow
                     title="Twitch"
                     subject = "Hey fellow streamer"
                     description="This is a test"
@@ -89,7 +89,67 @@ function EmailList(props) {
                     subject="hey there fellow streamer!"
                     description="This is DOPE!"
                     time="10pm"
-                /> */}
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="hey there fellow streamer!"
+                    description="This is DOPE!"
+                    time="10pm"
+                />
              </div>
         </div>
     );
