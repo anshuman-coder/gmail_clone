@@ -5,7 +5,7 @@
 .mail__tools {
   display: flex;
   justify-content: space-between;
-  background-color: white;
+  background-color: #6388f0;
 }
 .mail__toolsLeft {
   display: flex;

@@ -25,7 +25,7 @@ function SideBar(props) {
             startIcon ={<AddIcon fontSize='large'/>}
             onClick={() => dispatch(openSendMessage())}
             >
-                Compose
+                New Message
             </Button>
 
             <SideBarOption Icon={InboxIcon} title="Inbox" number={54} selected={true}/>

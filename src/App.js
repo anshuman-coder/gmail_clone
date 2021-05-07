@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SendMail from './SendMail';
 import './App.css';
 import Header from "./Header";
@@ -11,16 +11,26 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import RingLoader from "react-spinners/RingLoader";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSendMessageIsOpen } from './features/mailSlice';
 import { login, selectUser } from './features/userSlice';
 import Login from './Login';
 import { auth } from './firebase';
 
+
 function App() {
   const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    },3000)
+  }, [])
 
   useEffect( () => {
     auth.onAuthStateChanged( user => {
@@ -34,14 +44,24 @@ function App() {
     } )
   }, [] )
 
-  return (
+  return (    
     <Router>
       {
         !user ? (
-          <Login />
+          <React.Fragment>
+            <Login />
+          </React.Fragment>
         ) : (
+            
             <div className="App">   
-              <Header />   
+            {
+              loading?
+                
+                <RingLoader color={"#8C2200"} loading={loading} size={150} />  
+
+              :
+              <React.Fragment>
+                <Header />   
               <div className="app__body">
           
                   <SideBar />
@@ -55,8 +75,9 @@ function App() {
                     </Route>
                   </Switch>
               </div>
-              
-              {sendMessageIsOpen && <SendMail />}
+              </React.Fragment>
+            }
+            {sendMessageIsOpen && <SendMail />}
             </div>
     )}
     </Router>

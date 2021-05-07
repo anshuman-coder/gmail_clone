@@ -20,6 +20,7 @@
   justify-content: space-between;
   align-items: center;
   color: gray;
+  background-color: rgba(140, 34, 0, 1);
 }
 
 .sendMail__header > h3 {
@@ -41,6 +42,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  background-color: rgba(140, 34, 0, 1);
 }
 
 .sendMail > form > input {

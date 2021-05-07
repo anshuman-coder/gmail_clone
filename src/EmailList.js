@@ -61,9 +61,9 @@ function EmailList(props) {
                 
             </div>
             <div className="emailList__sections">
-                <Section Icon={InboxIcon} title='Primary'color='red' selected />
-                <Section Icon={PeopleIcon} title='Social'color='#1A73EB'  />
-                <Section Icon={LocalOfferIcon} title='Promotion'color='green'  />
+                <Section Icon={InboxIcon} title='Primary'color='#8c2200' selected />
+                <Section Icon={PeopleIcon} title='Social'color='#c9a113'  />
+                <Section Icon={LocalOfferIcon} title='Promotion'color='#13c9a4'  />
              </div>
 
              <div className="emailList__list">

@@ -1,11 +1,21 @@
 import { Button } from '@material-ui/core';
-import React from 'react';
+import logo from './Images/b-mail-logo.png'
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from './features/userSlice';
+import { login, logout } from './features/userSlice';
 import { auth, provider } from './firebase';
+import RingLoader from "react-spinners/RingLoader";
 import './Login.css'
 
 function Login(props) {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+          setLoading(false)
+        },3000)
+      }, [])
+
     const dispatch = useDispatch();
     const signIn = () => {
         auth.signInWithPopup(provider)
@@ -22,10 +32,11 @@ function Login(props) {
         <div className="login">
             <div className="login_container">
                 <img
-                    src="https://static.dezeen.com/uploads/2020/10/gmail-google-logo-rebrand-workspace-design_dezeen_2364_col_0.jpg"
+                    src={logo}
                     alt=""
                 />
-                <Button variant="contained" color="primary" onClick={signIn}>Login</Button>
+                <Button onClick={() => setLoading(loading)} variant="contained" color="primary" onClick={signIn}>Login</Button>
+                <RingLoader color={"#8C2200"} loading={loading} size={150} />
             </div>
         </div>
     );

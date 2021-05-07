@@ -2,15 +2,21 @@
   display: grid;
   place-items: center;
   height: 100vh;
-  background-color: #f2f2f2;
+  background: url("./Images/texture.jpg");
 }
 
 .login_container {
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  background-color: whitesmoke;
 }
 
 .login_container > img {
   object-fit: contain;
   height: 200px;
+}
+
+.login_container > Button {
+  width: 100%;
 }
