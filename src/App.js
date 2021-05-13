@@ -54,13 +54,7 @@ function App() {
         ) : (
             
             <div className="App">   
-            {
-              loading?
-                
-                <RingLoader color={"#8C2200"} loading={loading} size={150} />  
-
-              :
-              <React.Fragment>
+            <React.Fragment>
                 <Header />   
               <div className="app__body">
           
@@ -76,7 +70,6 @@ function App() {
                   </Switch>
               </div>
               </React.Fragment>
-            }
             {sendMessageIsOpen && <SendMail />}
             </div>
     )}
